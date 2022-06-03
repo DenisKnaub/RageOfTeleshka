@@ -293,6 +293,7 @@ class mapParse:
     def CreateFrame(self, filePath):
         self.mainRobot.restart()
         self.wallList = []
+        self.censLengList = []
         readText = open(filePath, "r").read()
         mainText = readText.split("\n")
         #for i in range(len(xMax)):
