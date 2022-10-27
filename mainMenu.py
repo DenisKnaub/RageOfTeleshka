@@ -9,7 +9,8 @@ import pygame_menu
 import game
 import sys
 import pygame
-         
+
+
 def getMainMenu(screen_width, screen_height, menus):
     
     screen_width = 800

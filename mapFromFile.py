@@ -407,7 +407,8 @@ class mapParse:
 
                 if (shit(x1,y1,x2,y2,w,h)):
                     self.censLengList[index].xnd = x1 
-                    self.censLengList[index].ynd = y1  
+                    self.censLengList[index].ynd = y1
+                    print(math.sqrt(((x1 - SstartX) * (x1 - SstartX)) +  ((y1 - SstartY) * (y1 - SstartY))))
                     return math.sqrt(((x1 - SstartX) * (x1 - SstartX)) +  ((y1 - SstartY) * (y1 - SstartY)))
             startX += self.censLengList[index].x
             startY += self.censLengList[index].y

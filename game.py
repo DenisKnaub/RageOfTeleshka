@@ -18,18 +18,51 @@ import socket
 import os
 import math
 
-def playGame(menu, screen_width, screen_height):
-    
+def socketConnected(port):
     ############### Подключение Сокет Сервер ##############################
     os.system("start python client.py") # запускаем клиента в отдельном окне
-    port = open('port.txt', 'r', encoding = "utf-8").read() # из за того что каждый раз нужен новый порт и я хз как по другому сделать, будет так    
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # создаем сокет
     sock.bind(('', int(port))) # свяжем наш сокет с данными хостом и портом (9090) с помощью метода bind
     sock.listen(1) # С помощью метода listen мы запустим для данного сокета режим прослушивания, очередь
+    global conn
+    global cl
     conn, addr = sock.accept() # принять подключение с помощью метода accept, который возвращает кортеж с двумя элементами: новый сокет и адрес клиента    
     print ('connected:', addr)
     cl = 'Close'
+    return 'connected', port, conn
     #####################################################
+
+def downloadMap():
+    # загружаем сохранённую карту
+    global file
+    file = open('settings.txt', 'r', encoding = "Windows-1251").read().split('.')
+    file = file[0] +'.svg'
+    print(file)
+    return file
+
+def closeConnected(port):
+    # обновляем порт для следующего запуска    
+    port1 = int(port) - 1 # удаляю по 1 чтобы был новый порт в следующий раз
+    with open('port.txt', 'w') as f:
+          f.write(str(port1))
+    f.close()
+    conn.close() # закрываем сервер
+    print ('Сервер закрыт')
+    return port1, "Сервер закрыт"
+    
+def playGame(menu, screen_width, screen_height):
+    
+    # ############### Подключение Сокет Сервер ##############################
+    # os.system("start python client.py") # запускаем клиента в отдельном окне
+    # port = open('port.txt', 'r', encoding = "utf-8").read() # из за того что каждый раз нужен новый порт и я хз как по другому сделать, будет так    
+    # sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # создаем сокет
+    # sock.bind(('', int(port))) # свяжем наш сокет с данными хостом и портом (9090) с помощью метода bind
+    # sock.listen(1) # С помощью метода listen мы запустим для данного сокета режим прослушивания, очередь
+    # conn, addr = sock.accept() # принять подключение с помощью метода accept, который возвращает кортеж с двумя элементами: новый сокет и адрес клиента    
+    # print ('connected:', addr)
+    # cl = 'Close'
+    # return 'connected'
+    # #####################################################
     
     img_dir = path.join(path.dirname(__file__), 'images')
   
@@ -38,9 +71,12 @@ def playGame(menu, screen_width, screen_height):
     
     # mapFromFile.loadMap()
     # загружаем сохранённую карту
-    file = open('settings.txt', 'r', encoding = "Windows-1251").read().split('.')
-    file = file[0] +'.svg'
-    print(file) 
+    # file = open('settings.txt', 'r', encoding = "Windows-1251").read().split('.')
+    # file = file[0] +'.svg'
+    # print(file)
+    port = open('port.txt', 'r', encoding = "utf-8").read() # из за того что каждый раз нужен новый порт и я хз как по другому сделать, будет так    
+    socketConnected(port)
+    downloadMap()
     WIDTH = screen_width + 200 # 800 + 200
     HEIGHT = screen_height
     FPS = 60
@@ -205,12 +241,14 @@ def playGame(menu, screen_width, screen_height):
         
         pygame.display.flip()
 
-    # обновляем порт для следующего запуска    
-    port1 = int(port) - 1 # удаляю по 1 чтобы был новый порт в следующий раз
-    with open('port.txt', 'w') as f:
-          f.write(str(port1))
-    f.close()
-    conn.close() # закрываем сервер
-    print ('Сервер закрыт')
+    
+    # # обновляем порт для следующего запуска    
+    # port1 = int(port) - 1 # удаляю по 1 чтобы был новый порт в следующий раз
+    # with open('port.txt', 'w') as f:
+    #       f.write(str(port1))
+    # f.close()
+    # conn.close() # закрываем сервер
+    # print ('Сервер закрыт')
+    closeConnected(port)
     menu.enable()
     menu.mainloop(screen)

@@ -1,20 +1,33 @@
 import pygame_menu
 import pickle
 
-def getScoreMenu(screen_width, screen_height):
-
-    def framePreset(frame, widget):
-        frame = frame.pack(widget,
-                           align=pygame_menu.locals.ALIGN_CENTER,
-                           vertical_position=pygame_menu.locals.POSITION_CENTER,
-                           margin=(0, 10)
-                           )
-        return frame
-
-    def widgetPreset(widget):
+def widgetPreset(widget):
         widget._background_color = (16, 51, 83)
         widget.set_border(1, (54, 211, 233))
         return widget
+
+def framePreset(frame, widget):
+    frame = frame.pack(widget,
+                        align=pygame_menu.locals.ALIGN_CENTER,
+                        vertical_position=pygame_menu.locals.POSITION_CENTER,
+                        margin=(0, 10)
+                        )
+    return frame
+
+def getScoreMenu(screen_width, screen_height):
+
+    # def framePreset(frame, widget):
+    #     frame = frame.pack(widget,
+    #                        align=pygame_menu.locals.ALIGN_CENTER,
+    #                        vertical_position=pygame_menu.locals.POSITION_CENTER,
+    #                        margin=(0, 10)
+    #                        )
+    #     return frame
+
+    # def widgetPreset(widget):
+    #     widget._background_color = (16, 51, 83)
+    #     widget.set_border(1, (54, 211, 233))
+    #     return widget
 
 
     background_image = pygame_menu.BaseImage(
