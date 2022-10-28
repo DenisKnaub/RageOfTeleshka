@@ -64,6 +64,5 @@ def test_client(i, inp, out):
     assert data.decode() == out
 
      
-if __name__ == '__main__':
-    pytest.main()
+
 
