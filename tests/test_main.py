@@ -25,8 +25,8 @@ def test_loadPNG_error_2():
 def test_socketConnected():
     port = open('port.txt', 'r', encoding = "utf-8").read()
     res = socketConnected(port)
-    res[0] == 'connected'
-
+    assert res[0] == 'connected'
+     
 def test_image():
     image = pygame_menu.baseimage.BaseImage('map/ultima.png')
     widgetImage = pygame_menu.widgets.Image(image)
