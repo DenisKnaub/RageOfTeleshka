@@ -26,22 +26,22 @@ jobs:
           pip install -r requirements.txt
       - name: Test with pytest
         run: |
-        pip install pytest pytest-cov
-        python -m pytest —cov=. —cov-report xml
+          pip install pytest pytest-cov
+          python -m pytest —cov=. —cov-report xml
 
       - name: Covert Coverage Results
         run: |
-        pip install coveragepy-lcov
-        coveragepy-lcov —data_file_path .coverage —output_file_path lcov.info
+          pip install coveragepy-lcov
+          coveragepy-lcov —data_file_path .coverage —output_file_path lcov.info
       - name: Upload Coverage Results
         uses: coverallsapp/github-action@master
         with:
-        github-token: ${{ secrets.github_token }}
-        path-to-lcov: lcov.info
+          github-token: ${{ secrets.github_token }}
+          path-to-lcov: lcov.info
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           
