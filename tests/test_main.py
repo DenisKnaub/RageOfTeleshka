@@ -1,8 +1,8 @@
 import pytest
 import pygame_menu
-import mapMenu as mapMenu
-from mapMenu import loadPNG, changeShip, saveMap, getShipMenu 
-from game import socketConnected, downloadMap, closeConnected
+import source.mapMenu as mapMenu
+from source.mapMenu import loadPNG, changeShip, saveMap, getShipMenu 
+from source.game import socketConnected, downloadMap, closeConnected
 
 
 # Модульный тест!

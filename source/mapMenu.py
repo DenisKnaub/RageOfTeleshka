@@ -5,7 +5,7 @@ import glob
 from svglib.svglib import svg2rlg
 from reportlab.graphics import renderPM
 from PIL import Image
-import mainMenu as mainMenu
+import source.mainMenu as mainMenu
 
 def loadMap(): # считываем все svg карты
     for filename in glob.glob('map\*.svg'):

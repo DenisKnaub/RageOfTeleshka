@@ -10,10 +10,10 @@ import pygame
 import pygame_menu
 import random
 import os
-import mainMenu as mainMenu
-import helpMenu as helpMenu
-import mapMenu as mapMenu
-import game as game
+import source.mainMenu as mainMenu
+import source.helpMenu as helpMenu
+import source.mapMenu as mapMenu
+import source.game as game
 
 # Настройки окна
 screen_width = 800
