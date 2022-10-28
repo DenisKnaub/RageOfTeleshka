@@ -1,7 +1,9 @@
 import pytest
 import pygame_menu
+import mapMenu
 from mapMenu import loadPNG, changeShip, saveMap, getShipMenu 
 from game import socketConnected, downloadMap, closeConnected
+
 
 # Модульный тест!
 def test_loadPNG():
