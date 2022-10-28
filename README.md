@@ -1,5 +1,5 @@
-![Build Status](https://github.com/DenisKnaub/RageOfTeleshka/actions/workflows/checks.yml/
-badge.svg?branch=main)
+[![Build Status](https://github.com/DenisKnaub/RageOfTeleshka/actions/workflows/checks.yml/
+badge.svg?branch=main)](https://github.com/DenisKnaub/RageOfTeleshka/actions/workflows/checks.yml)
 #Тестирование приложения "Робот тележка" с помощью библиотеки pytest
 Приложение эмулирует работу робота тележки. На робот есть возможность установить датчик столкновения, дальномер и т.д. Добавить карту в формате __.svg__
 
