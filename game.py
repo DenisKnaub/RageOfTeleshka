@@ -11,7 +11,7 @@ from os import path
 import datetime
 import pickle
 from datetime import date
-import mapFromFile
+import mapFromFile as mapFromFile
 import pygame as pg
 import sys
 import socket 

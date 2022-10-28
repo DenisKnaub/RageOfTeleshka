@@ -1,6 +1,6 @@
 import pytest
 import pygame_menu
-import mapMenu
+import mapMenu as mapMenu
 from mapMenu import loadPNG, changeShip, saveMap, getShipMenu 
 from game import socketConnected, downloadMap, closeConnected
 

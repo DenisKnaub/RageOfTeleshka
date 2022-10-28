@@ -6,7 +6,7 @@ Created on Thu Apr 14 12:39:23 2022
 """
 
 import pygame_menu
-import game
+import game as game
 import sys
 import pygame
 
