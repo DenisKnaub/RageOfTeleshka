@@ -1,3 +1,4 @@
+[![Coverage Status](https://coveralls.io/repos/github/DenisKnaub/RageOfTeleshka/badge.svg?branch=main)](https://coveralls.io/github/DenisKnaub/RageOfTeleshka?branch=main)
 #Тестирование приложения "Робот тележка" с помощью библиотеки pytest
 Приложение эмулирует работу робота тележки. На робот есть возможность установить датчик столкновения, дальномер и т.д. Добавить карту в формате __.svg__
 
