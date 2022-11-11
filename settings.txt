@@ -1,1 +1,1 @@
-map/ultima.png
+map/mogeksa.png
